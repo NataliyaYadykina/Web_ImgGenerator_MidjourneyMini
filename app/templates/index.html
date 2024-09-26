@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генерация изображений</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Генерация изображений на основе текста</h1>
+        <form action="/" method="POST">
+            <label for="user_id">ID пользователя:</label>
+            <input type="text" id="user_id" name="user_id" required>
+            <br>
+            <label for="description">Описание:</label>
+            <input type="text" id="description" name="description" required>
+            <br>
+            <button type="submit">Сгенерировать изображение</button>
+        </form>
+
+        {% if image_path %}
+        <h2>Сгенерированное изображение:</h2>
+        <img src="{{ image_path }}" alt="Сгенерированное изображение">
+        <p><a href="{{ image_path }}" download>Скачать изображение</a></p>
+        {% endif %}
+
+        <!-- <p><a href="/history/{{ user_id }}">История запросов</a></p> -->
+        <p><a href="/history/1">История запросов пользователя #1</a></p>
+        <p><a href="/history/2">История запросов пользователя #2</a></p>
+        <p><a href="/history/3">История запросов пользователя #3</a></p>
+    </div>
+</body>
+
+</html>

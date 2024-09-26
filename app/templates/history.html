@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История запросов</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>История запросов для пользователя: {{ user_id }}</h1>
+        <ul>
+            {% for entry in history %}
+            <li>
+                <p><strong>{{ entry.timestamp }}</strong>: {{ entry.description }}</p>
+                <img class="preview_img" src="../{{ entry.image_path }}" alt="Сгенерированное изображение">
+                <p><a href="../{{ entry.image_path }}" download>Скачать изображение</a></p>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="/">Назад на главную</a>
+    </div>
+</body>
+
+</html>
